@@ -1,5 +1,6 @@
 
 package com.danielpsf
+
 import grails.test.mixin.Mock
 import grails.test.mixin.TestFor
 import spock.lang.Specification
@@ -16,10 +17,10 @@ class TaskControllerSpec extends Specification {
 
 	void "Should list all tasks"() {
 		given:
-		Task task = new Task(description: "some task", done: true).save()
+		new Task(description: "some task", done: true).save()
 		
 		when:
-		def tasks = controller.list()
+		controller.list()
 		
 		then:
 		response.json != []
